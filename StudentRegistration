@@ -1,0 +1,56 @@
+
+using System;
+using System.Collections;
+using System.Windows.Forms;
+
+namespace StudentRegistrationApplication
+{
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            InitializeComponent();
+            PopulateMonthComboBox();
+            PopulateProgramComboBox();
+        }
+
+        private void PopulateMonthComboBox()
+        {
+            string[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            foreach (string month in months)
+            {
+                cmbMonth.Items.Add(month);
+            }
+        }
+
+        private void PopulateProgramComboBox()
+        {
+            ArrayList programs = new ArrayList()
+            {
+                "Bachelor of Science in Computer Science",
+                "Bachelor of Science in Information Technology",
+                "Bachelor of Science in Information Systems",
+                "Bachelor of Science in Computer Engineering"
+            };
+
+            foreach (string program in programs)
+            {
+                cmbProgram.Items.Add(program);
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (cmbMonth.SelectedItem != null && cmbProgram.SelectedItem != null)
+            {
+                MessageBox.Show($"Selected Month: {cmbMonth.SelectedItem}\nSelected Program: {cmbProgram.SelectedItem}", "Confirmation");
+            }
+            else
+            {
+                MessageBox.Show("Please select both a month and a program.", "Error");
+            }
+        }
+    }
+}
+
+Runner.prototype.gameOver = function (){}
